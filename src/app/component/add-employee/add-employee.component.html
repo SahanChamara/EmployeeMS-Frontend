@@ -11,25 +11,25 @@
             <p>Enter the employee details below. Fields marked with <span class="required-indicator">*</span> are required.</p>
         </div>
         
-        <form id="employeeForm">
+        <form [formGroup]="postEmployeeForm" id="employeeForm">
             <div class="form-grid">
                 <div class="form-group">
                     <label for="name" class="form-label">Name <span class="required-indicator">*</span></label>
-                    <input type="text" id="name" name="name" placeholder="Enter employee name" class="form-control" required>
+                    <input type="text" id="name" name="name" placeholder="Enter employee name" class="form-control" required formControlName="name">
                     <span class="form-error">Name must contain only alphabetic characters and spaces (max 100 characters)</span>
                     <small class="form-text">Employee's full name (alphabetic characters only)</small>
                 </div>
                 
                 <div class="form-group">
                     <label for="email" class="form-label">Email <span class="required-indicator">*</span></label>
-                    <input type="email" id="email" name="email" placeholder="Enter employee email" class="form-control" required>
+                    <input type="email" id="email" name="email" placeholder="Enter employee email" class="form-control" required formControlName="email">
                     <span class="form-error">Please enter a valid email address (e.g., employeecompany.com)</span>
                     <small class="form-text">Email must be unique and in proper format</small>
                 </div>
                 
                 <div class="form-group">
                     <label for="department" class="form-label">Department <span class="required-indicator">*</span></label>
-                    <select id="department" name="department" class="form-control" required>
+                    <select id="department" name="department" class="form-control" required formControlName="department">
                         <option value="" disabled selected>Select a department</option>
                         <option value="HR">HR</option>
                         <option value="IT">IT</option>
@@ -38,38 +38,12 @@
                     </select>
                     <span class="form-error">Please select a department</span>
                 </div>
-                
-                <div class="form-group">
-                    <label for="position" class="form-label">Position</label>
-                    <input type="text" id="position" name="position" placeholder="Enter employee position" class="form-control">
-                    <small class="form-text">Employee's current role (optional)</small>
-                </div>
-                
-                <div class="form-group">
-                    <label for="joinDate" class="form-label">Join Date</label>
-                    <input type="date" id="joinDate" name="joinDate" class="form-control">
-                    <small class="form-text">Date when employee joined the company (optional)</small>
-                </div>
-                
-                <div class="form-group">
-                    <label for="status" class="form-label">Status</label>
-                    <select id="status" name="status" class="form-control">
-                        <option value="Active" selected>Active</option>
-                        <option value="On Leave">On Leave</option>
-                        <option value="Terminated">Terminated</option>
-                    </select>
-                </div>
-                
-                <div class="form-group full-width">
-                    <label for="notes" class="form-label">Notes</label>
-                    <textarea id="notes" name="notes" rows="4" placeholder="Any additional information about this employee" class="form-control"></textarea>
-                </div>
-                
+        
                 <div class="form-actions">
                     <a routerLink="" class="btn btn-secondary">
                         <i class="fas fa-times"></i> Cancel
                     </a>
-                    <button type="submit" class="btn btn-success">
+                    <button (click)="addEmployee()" type="submit" class="btn btn-success">
                         <i class="fas fa-save"></i> Save Employee
                     </button>
                 </div>
