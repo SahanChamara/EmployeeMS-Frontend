@@ -14,6 +14,7 @@ export class UpdateEmployeeComponent {
   updateEmployeeForm!: FormGroup;
   employeeService = inject(EmployeeServiceService);
   id!: number;
+  empId: number | undefined;
 
   constructor(private fb: FormBuilder, private readonly activatedRoute: ActivatedRoute, private readonly router: Router) { }
 
@@ -31,6 +32,7 @@ export class UpdateEmployeeComponent {
   getEmployeeById(){
     this.employeeService.getEmployeeById(this.id).subscribe((data) => {
       console.log("emp byID", data);
+      this.empId = data.id;
       this.updateEmployeeForm.patchValue(data);
       
     })

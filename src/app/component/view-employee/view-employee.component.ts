@@ -14,12 +14,12 @@ export class ViewEmployeeComponent implements OnInit {
   employeeService = inject(EmployeeServiceService);
   emploeeList: Employee[] = [];
 
-  
+
 
   constructor() { }
 
   ngOnInit(): void {
-    
+
     this.loadEmployees();
   }
 
@@ -29,12 +29,23 @@ export class ViewEmployeeComponent implements OnInit {
     })
   }
 
-  deleteEmployee(id: number ): void {
+  deleteEmployee(id: number): void {
     this.employeeService.deleteEmployee(id).subscribe((data) => {
-      if(data){
+      if (data) {
         this.loadEmployees();
       }
     })
+  }
+
+  downloadCSVFromBackend(): void {
+    this.employeeService.exportCSV().subscribe((blob) => {
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'employees_report.csv';
+      a.click();
+      window.URL.revokeObjectURL(url);
+    });
   }
 
 }

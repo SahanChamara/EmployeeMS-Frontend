@@ -5,6 +5,7 @@
             <a routerLink="/addEmployee" class="btn btn-primary">
                 <i class="fas fa-plus"></i> Add New Employee
             </a>
+            <button class="btn btn-primary" (click)="downloadCSVFromBackend()">Employees Report</button>
         </div>
         
         <div class="search-filter">
@@ -17,8 +18,8 @@
                     <option value="">All Departments</option>
                     <option value="HR">HR</option>
                     <option value="IT">IT</option>
-                    <option value="Finance">Finance</option>
-                    <option value="Operations">Operations</option>
+                    <option value="FINANCE">Finance</option>
+                    <option value="OPERATIONS">Operations</option>
                 </select>
                 <select>
                     <option value="10">10 per page</option>
