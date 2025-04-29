@@ -52,10 +52,10 @@
                         <td>{{employee.updatedAt}}</td>
                         <td>
                             <div class="action-buttons">
-                                <button class="btn-icon btn-edit" title="Edit">
+                                <button class="btn-icon btn-edit" title="Edit" routerLink="updateEmployee/{{employee.id}}">
                                     Edit
                                 </button>
-                                <button class="btn-icon btn-delete" title="Delete">
+                                <button class="btn-icon btn-delete" title="Delete" (click)="deleteEmployee(employee.id!)">
                                     Delete
                                 </button>
                             </div>
