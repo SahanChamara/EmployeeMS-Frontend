@@ -1,0 +1,79 @@
+<main class="container main-content">
+    <div class="card">
+        <div class="page-header">
+            <h2 class="page-title">Employee Management</h2>
+            <a routerLink="/addEmployee" class="btn btn-primary">
+                <i class="fas fa-plus"></i> Add New Employee
+            </a>
+        </div>
+        
+        <div class="search-filter">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search employees by name or email...">
+            </div>
+            <div class="filter-box">
+                <select>
+                    <option value="">All Departments</option>
+                    <option value="HR">HR</option>
+                    <option value="IT">IT</option>
+                    <option value="Finance">Finance</option>
+                    <option value="Operations">Operations</option>
+                </select>
+                <select>
+                    <option value="10">10 per page</option>
+                    <option value="25">25 per page</option>
+                    <option value="50">50 per page</option>
+                    <option value="100">100 per page</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="table-responsive">
+            <table class="employee-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Department</th>
+                        <th>Created At</th>
+                        <th>Updated At</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let employee of emploeeList">
+                    <tr>
+                        <td>{{employee.id}}</td>
+                        <td>{{employee.name}}</td>
+                        <td>{{employee.email}}</td>
+                        <td><span class="badge badge-it">{{employee.department}}</span></td>
+                        <td>{{employee.createAt}}</td>
+                        <td>{{employee.updatedAt}}</td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn-icon btn-edit" title="Edit">
+                                    Edit
+                                </button>
+                                <button class="btn-icon btn-delete" title="Delete">
+                                    Delete
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="pagination">
+            <span class="page-item"><i class="fas fa-chevron-left"></i></span>
+            <span class="page-item active">1</span>
+            <span class="page-item">2</span>
+            <span class="page-item">3</span>
+            <span class="page-item">4</span>
+            <span class="page-item">5</span>
+            <span class="page-item"><i class="fas fa-chevron-right"></i></span>
+        </div>
+    </div>
+</main>

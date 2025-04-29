@@ -1,0 +1,91 @@
+<main class="container main-content">
+    <div class="breadcrumb">
+        <a href="index.html">Employee Directory</a>
+        <span class="separator"><i class="fas fa-chevron-right"></i></span>
+        <span class="current">Add New Employee</span>
+    </div>
+    
+    <div class="card">
+        <div class="card-header">
+            <h2 class="page-title">Add New Employee</h2>
+            <p>Enter the employee details below. Fields marked with <span class="required-indicator">*</span> are required.</p>
+        </div>
+        
+        <form id="employeeForm">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="name" class="form-label">Name <span class="required-indicator">*</span></label>
+                    <input type="text" id="name" name="name" placeholder="Enter employee name" class="form-control" required>
+                    <span class="form-error">Name must contain only alphabetic characters and spaces (max 100 characters)</span>
+                    <small class="form-text">Employee's full name (alphabetic characters only)</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email" class="form-label">Email <span class="required-indicator">*</span></label>
+                    <input type="email" id="email" name="email" placeholder="Enter employee email" class="form-control" required>
+                    <span class="form-error">Please enter a valid email address (e.g., employeecompany.com)</span>
+                    <small class="form-text">Email must be unique and in proper format</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="department" class="form-label">Department <span class="required-indicator">*</span></label>
+                    <select id="department" name="department" class="form-control" required>
+                        <option value="" disabled selected>Select a department</option>
+                        <option value="HR">HR</option>
+                        <option value="IT">IT</option>
+                        <option value="Finance">Finance</option>
+                        <option value="Operations">Operations</option>
+                    </select>
+                    <span class="form-error">Please select a department</span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="position" class="form-label">Position</label>
+                    <input type="text" id="position" name="position" placeholder="Enter employee position" class="form-control">
+                    <small class="form-text">Employee's current role (optional)</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="joinDate" class="form-label">Join Date</label>
+                    <input type="date" id="joinDate" name="joinDate" class="form-control">
+                    <small class="form-text">Date when employee joined the company (optional)</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="status" class="form-label">Status</label>
+                    <select id="status" name="status" class="form-control">
+                        <option value="Active" selected>Active</option>
+                        <option value="On Leave">On Leave</option>
+                        <option value="Terminated">Terminated</option>
+                    </select>
+                </div>
+                
+                <div class="form-group full-width">
+                    <label for="notes" class="form-label">Notes</label>
+                    <textarea id="notes" name="notes" rows="4" placeholder="Any additional information about this employee" class="form-control"></textarea>
+                </div>
+                
+                <div class="form-actions">
+                    <a routerLink="" class="btn btn-secondary">
+                        <i class="fas fa-times"></i> Cancel
+                    </a>
+                    <button type="submit" class="btn btn-success">
+                        <i class="fas fa-save"></i> Save Employee
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</main>
+
+<!-- Success Notification -->
+<div class="notification notification-success" id="successNotification">
+    <i class="fas fa-check-circle"></i>
+    <span>Employee successfully saved</span>
+</div>
+
+<!-- Error Notification -->
+<div class="notification notification-error" id="errorNotification">
+    <i class="fas fa-exclamation-circle"></i>
+    <span>Error: Email already exists</span>
+</div>
